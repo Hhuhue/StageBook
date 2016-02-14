@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    {% include("PublicationBundle:Pages:style.html.twig") %}
+</head>
+
+<body class="fixed-sidebar">
+{% block body %}
+{% endblock %}
+
+{% include("PublicationBundle:Pages:script.html.twig") %}
+
+</body>
+</html>

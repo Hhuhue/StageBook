@@ -1,0 +1,4 @@
+publication:
+    resource: "@PublicationBundle/Controller/"
+    type:     annotation
+    prefix:   /

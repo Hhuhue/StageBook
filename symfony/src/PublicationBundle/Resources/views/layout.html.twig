@@ -1,0 +1,41 @@
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+    Accueil
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        {% include("PublicationBundle:Pages:menu.html.twig") %}
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="m-t-lg">
+                            {% block publication_body %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer fixed">
+                <div>
+                    <span>&copy; 2016 - Charles-Edouard et Jean-François</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
