@@ -58,4 +58,24 @@ class PublicationController extends Controller
 
         return $this->render('PublicationBundle:Pages:menu.html.twig', array('sujets' => $sujets));
     }
+
+    public function editAction($id, Request $request)
+    {
+        $sujet = $this->getDoctrine()->getManager()->getRepository('PublicationBundle:Sujet')->find($id);
+
+        $form = $this->createForm(SujetType::class, $sujet);
+
+        if ($form->handleRequest($request)->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($sujet);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('publication_view_sujet', array('id' => $sujet->getId())));
+        }
+
+        return $this->render('PublicationBundle:Publication:Ajout.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
 }
