@@ -1,0 +1,11 @@
+publication_home:
+    path: /
+    defaults: {_controller: PublicationBundle:Publication:index}
+
+publication_add:
+    path: /ajout-sujet
+    defaults: {_controller: PublicationBundle:Publication:add}
+
+publication_view_sujet:
+    path: /view-sujet-{id}
+    defaults: { _controller: PublicationBundle:Publication:viewSujet }

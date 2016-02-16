@@ -1,4 +1,3 @@
 publication:
-    resource: "@PublicationBundle/Controller/"
-    type:     annotation
+    resource: "@PublicationBundle/Resources/config/routing.yml"
     prefix:   /

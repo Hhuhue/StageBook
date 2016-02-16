@@ -7,7 +7,7 @@
 
 {% block body %}
     <div class="wrapper">
-        {% include("PublicationBundle:Pages:menu.html.twig") %}
+        {{ render(controller("PublicationBundle:Publication:menu")) }}
 
         <div id="page-wrapper" class="gray-bg">
             <div class="row border-bottom">

@@ -9,31 +9,35 @@
                     </div>
                 </div>
             </li>
-            <li><a href="../Shared/Home.php"><i class="glyphicon glyphicon-user"></i>Home</a></li>
+            <li><a href="{{ path('publication_home') }}"><i class="glyphicon glyphicon-user"></i>Accueil</a></li>
+            <li><a href="{{ path('publication_add') }}"><i class="glyphicon glyphicon-plus"></i>Ajouter un sujet</a></li>
+
             <li>
-                <a href="#" id="inspinia_test">
-                    <i class="glyphicon glyphicon-user"></i>
-                    <span class="nav-label">Test</span>
+                <a href="#" id="sujets">
+                    <i class="glyphicon glyphicon-list"></i>
+                    <span class="nav-label">Sujets</span>
                     <span class="fa arrow"></span>
                 </a>
+            {% for sujet in sujets%}
                 <ul class="nav nav-second-level">
-                    <li><a href="../Items/Item1.php?Valeur=32">Item 1</a></li>
-                    <li><a href="../Items/Item2.php">Item 2</a></li>
-                    <li><a href="../Items/Item3.1.php">Item 3</a></li>
-                    <li><a href="../Items/Item4.php">Item 4</a></li>
+                    <li>
+                        <a href="{{ path('publication_view_sujet', { 'id': sujet.id }) }}">
+                            <i class="glyphicon glyphicon-book"></i>
+                            {{ sujet.titre }}
+                        </a>
+                    </li>
                 </ul>
+            {% endfor %}
             </li>
+
             <li>
-                <a href="#" id="sql_tests">
+                <a href="#" id="stage_book">
                     <i class="glyphicon glyphicon-user"></i>
-                    <span class="nav-label">SQL</span>
+                    <span class="nav-label">StageBook</span>
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level">
-                    <li><a href="../SQL/SQL1.php">Insert</a></li>
-                    <li><a href="../SQL/SQL2.php">Update</a></li>
-                    <li><a href="../SQL/SQL3.php">Delete</a></li>
-                    <li><a href="../SQL/SQL4.php">MVC</a></li>
+                    <li><a href="#">Ajouter des choses</a></li>
                 </ul>
             </li>
         </ul>
