@@ -18,7 +18,10 @@ class PublicationController extends Controller
 {
     public function indexAction()
     {
-        return $this->render("PublicationBundle:Pages:index.html.twig");
+        $rep = $this->getDoctrine()->getRepository('PublicationBundle:Sujet');
+        $sujets = $rep->findAll();
+
+        return $this->render("PublicationBundle:Pages:index.html.twig", array('sujets' => $sujets));
     }
 
     public function addAction(Request $request)

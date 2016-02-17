@@ -9,3 +9,7 @@ publication_add:
 publication_view_sujet:
     path: /view-sujet-{id}
     defaults: { _controller: PublicationBundle:Publication:viewSujet }
+
+publication_edit:
+    path: /edit-sujet-{id}
+    defaults: { _controller: PublicationBundle:Publication:edit }
