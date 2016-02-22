@@ -29,7 +29,7 @@ class PublicationController extends Controller
     {
         $sujet = new Sujet();
 
-        $form = $this->createForm(SujetType::class, $sujet)->add("Ajouter", SubmitType::class);
+        $form = $this->createForm(SujetType::class, $sujet)->add("Submit", SubmitType::class, array('label' => "Ajouter"));
 
         if ($form->handleRequest($request)->isValid())
         {
@@ -67,7 +67,7 @@ class PublicationController extends Controller
     {
         $sujet = $this->getDoctrine()->getManager()->getRepository('PublicationBundle:Sujet')->find($id);
 
-        $form = $this->createForm(SujetType::class, $sujet)->add("Modifier", SubmitType::class);
+        $form = $this->createForm(SujetType::class, $sujet)->add("Submit", SubmitType::class, array('label' => "Sauvegarder"));
 
         if ($form->handleRequest($request)->isValid())
         {
