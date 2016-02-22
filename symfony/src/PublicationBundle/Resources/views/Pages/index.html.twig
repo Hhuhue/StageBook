@@ -13,11 +13,10 @@
                 <td style="font-size: 12pt">{{ sujet.titre }}</td>
                 <td>
                     <a href="{{ path("publication_edit", {"id": sujet.id}) }}" class="btn btn-warning">Éditer</a>
-                    {#<a href="{{ path("publication_delete", {"id": sujet.id }) }}">Suprimer</a>#}
+                    <a href="{{ path("publication_delete", {"id": sujet.id }) }}" class="btn btn-danger">Suprimer</a>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    Override >:D
 {% endblock %}

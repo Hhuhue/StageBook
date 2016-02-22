@@ -11,6 +11,7 @@ namespace PublicationBundle\Controller;
 use PublicationBundle\Entity\Sujet;
 use PublicationBundle\Form\SujetType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -28,7 +29,7 @@ class PublicationController extends Controller
     {
         $sujet = new Sujet();
 
-        $form = $this->createForm(SujetType::class, $sujet);
+        $form = $this->createForm(SujetType::class, $sujet)->add("Ajouter", SubmitType::class);
 
         if ($form->handleRequest($request)->isValid())
         {
@@ -39,7 +40,7 @@ class PublicationController extends Controller
             return $this->redirect($this->generateUrl('publication_view_sujet', array('id' => $sujet->getId())));
         }
 
-        return $this->render('PublicationBundle:Publication:Ajout.html.twig', array(
+        return $this->render('PublicationBundle:Publication:SujetForm.html.twig', array(
             'form' => $form->createView(),
         ));
     }
@@ -66,7 +67,7 @@ class PublicationController extends Controller
     {
         $sujet = $this->getDoctrine()->getManager()->getRepository('PublicationBundle:Sujet')->find($id);
 
-        $form = $this->createForm(SujetType::class, $sujet);
+        $form = $this->createForm(SujetType::class, $sujet)->add("Modifier", SubmitType::class);
 
         if ($form->handleRequest($request)->isValid())
         {
@@ -77,8 +78,30 @@ class PublicationController extends Controller
             return $this->redirect($this->generateUrl('publication_view_sujet', array('id' => $sujet->getId())));
         }
 
-        return $this->render('PublicationBundle:Publication:Ajout.html.twig', array(
+        return $this->render('PublicationBundle:Publication:SujetForm.html.twig', array(
             'form' => $form->createView(),
+            'sujet' => $sujet
+        ));
+    }
+
+    public function deleteAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $sujet = $em->getRepository('PublicationBundle:Sujet')->find($id);
+
+        $form = $this->createFormBuilder()->add('Supprimer', SubmitType::class)->getForm();
+
+        if($form->handleRequest($request)->isValid())
+        {
+            $em->remove($sujet);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('publication_home'));
+        }
+
+        return $this->render('PublicationBundle:Publication:Supprimer.html.twig', array(
+            'sujet' => $sujet,
+            'form' => $form->createView()
         ));
     }
 }

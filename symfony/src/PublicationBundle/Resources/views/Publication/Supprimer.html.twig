@@ -1,0 +1,11 @@
+{% extends "PublicationBundle:layout.html.twig" %}
+
+{% block publication_body %}
+    <h1>Supprimer un sujet</h1>
+    <hr/>
+    <p style="font-size: 12pt"><b class="col-sm-1">Titre :</b>{{ sujet.titre }}</p>
+    {{ form_start(form) }}
+    {{ form_widget(form.Supprimer, {"attr" : {"class" : "btn btn-danger col-md-1"}}) }}
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}

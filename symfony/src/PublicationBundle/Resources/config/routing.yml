@@ -13,3 +13,7 @@ publication_view_sujet:
 publication_edit:
     path: /edit-sujet-{id}
     defaults: { _controller: PublicationBundle:Publication:edit }
+
+publication_delete:
+    path: /delete-sujet-{id}
+    defaults: { _controller: PublicationBundle:Publication:delete }

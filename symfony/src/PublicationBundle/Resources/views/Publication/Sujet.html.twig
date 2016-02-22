@@ -3,5 +3,8 @@
 {% block publication_body %}
     <h1>{{ sujet.titre }}</h1>
     <hr/>
-    <p class="col-md-6">{{ sujet.contenu }}</p>
+    <div class="col-md-8">{{ sujet.contenu | raw }}</div>
+    <div class="col-md-12">
+        <a href="{{ path("publication_edit", {"id" : sujet.id}) }}" class="btn btn-warning">Modifier</a>
+    </div>
 {% endblock %}

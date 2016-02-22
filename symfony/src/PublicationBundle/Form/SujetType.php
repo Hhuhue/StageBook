@@ -4,6 +4,7 @@ namespace PublicationBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Tests\Extension\Core\Type\SubmitTypeTest;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,10 +18,8 @@ class SujetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre')
-            ->add('contenu')
-            ->add("save", SubmitType::class)
-        ;
+            ->add('Titre')
+            ->add('Contenu', TextareaType::class);
     }
     
     /**

@@ -1,0 +1,35 @@
+{% extends "PublicationBundle:layout.html.twig" %}
+
+{% block publication_body %}
+    <h1>Ajouter un sujet</h1>
+    <hr />
+    <div class="well">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        <div class="form-group">
+            {{ form_label(form.Titre, "Titre", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+            {{ form_errors(form.Titre) }}
+            <div class="col-sm-4">
+                {{ form_widget(form.Titre, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.Contenu, "Contenu", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+            {{ form_errors(form.Contenu) }}
+            <div class="col-sm-11">
+                {{ form_widget(form.Contenu, {'attr': {'class': 'form-control', 'rows' : '15', 'col' : '20'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-4 col-md-offset-1">
+                {% if form.Modifier is defined %}
+                {{ form_widget(form.Modifier, {'attr': {'class': 'btn btn-primary'}}) }}
+                {% else %}
+                {{ form_widget(form.Ajouter, {'attr': {'class': 'btn btn-primary'}}) }}
+                {% endif %}
+            </div>
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
